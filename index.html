@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepVision AI - Deepfake Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #001f3f, #8a2be2);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80vh;
+            text-align: left;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .hero-animation {
+            width: 400px;
+            height: 400px;
+            background: url('animation-placeholder.gif') center/cover no-repeat;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .upload-section {
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .upload-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .upload-box {
+            padding: 40px;
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            transition: background 0.3s;
+        }
+
+        .upload-box:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .upload-box p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .upload-box input[type="file"] {
+            display: none;
+        }
+
+        .upload-box label {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #8a2be2;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .upload-box label:hover {
+            background: #5d1a99;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer a {
+            color: #8a2be2;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DeepVision AI</h1>
+        <nav>
+            <a href="datasets.html">Datasets</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="how-it-works.html">How It Works</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <div>
+                <h2>Upload Your Video for Deepfake Detection</h2>
+                <p>Our advanced AI technology analyzes videos to classify them as genuine or manipulated.</p>
+            </div>
+            <div class="hero-animation"></div>
+        </section>
+
+        <section class="upload-section">
+            <h3>Upload Your Video</h3>
+            <div class="upload-box">
+                <input type="file" id="video-upload" accept="video/*">
+                <label for="video-upload">Choose Video</label>
+                <p>Drag and drop your video file here or click "Choose Video" to upload.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 DeepVision AI | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

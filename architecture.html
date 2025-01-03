@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture - DeepVision AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #001f3f, #8a2be2);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer a {
+            color: #8a2be2;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DeepVision AI</h1>
+        <nav>
+            <a href="datasets.html">Datasets</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="how-it-works.html">How It Works</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Model Architecture</h2>
+            <p>
+                Our model is a combination of CNN and RNN. We have used the pre-trained ResNext CNN model to extract the features at the frame level and based on the extracted features the LSTM network is trained to classify the video as deepfake or pristine. Using the Data Loader on training split of videos, the labels of the videos are loaded and fitted into the model for training.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>ResNext</h2>
+            <p>
+                Instead of writing the code from scratch, we used the pre-trained model of ResNext for feature extraction. ResNext is a Residual CNN network optimized for high performance on deeper neural networks. For the experimental purpose, we have used the resnext50_32x4d model. We have used a ResNext of 50 layers and 32 x 4 dimensions. Following this, we will be fine-tuning the network by adding extra required layers and selecting a proper learning rate to properly converge the gradient descent of the model. The 2048-dimensional feature vectors after the last pooling layers of ResNext are used as the sequential LSTM input.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>LSTM for Sequence Processing</h2>
+            <p>
+                2048-dimensional feature vectors are fitted as the input to the LSTM. We are using 1 LSTM layer with 2048 latent dimensions and 2048 hidden layers along with a 0.4 chance of dropout, which is capable of achieving our objective. LSTM is used to process the frames sequentially so that the temporal analysis of the video can be made, by comparing the frame at 't' second with the frame of 't-n' seconds. Where 'n' can be any number of frames before t.
+            </p>
+            <p>
+                The model also consists of the Leaky ReLU activation function. A linear layer of 2048 input features and 2 output features are used to make the model capable of learning the average rate of correlation between the input and output. An adaptive average polling layer with the output parameter 1 is used in the model. This gives the target output size of the image of the form H x W. For sequential processing of the frames, a Sequential Layer is used. A batch size of 4 is used to perform training. A SoftMax layer is used to get the confidence of the model during prediction.
+            </p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 DeepVision AI | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
