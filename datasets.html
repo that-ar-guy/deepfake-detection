@@ -18,6 +18,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            text-align: center;
         }
 
         header {
@@ -40,62 +41,42 @@
             font-weight: bold;
         }
 
+        .dataset-video {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
         .section {
-            padding: 50px;
-            margin: 20px 0;
-            border-radius: 15px;
+            margin: 40px 0;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            animation: fadeIn 1s ease-in-out;
+            border-radius: 15px;
         }
 
         .section h2 {
             font-size: 2rem;
-            margin-bottom: 20px;
-            text-align: center;
+            margin-bottom: 15px;
         }
 
         .section p {
             font-size: 1.2rem;
             line-height: 1.6;
-            text-align: justify;
         }
 
-        .dataset-placeholder {
-            margin: 30px auto;
-            width: 100%;
-            max-width: 600px;
-            height: 300px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.2rem;
-        }
-
-        footer {
+        .footer {
             text-align: center;
             padding: 20px;
             font-size: 0.9rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        footer a {
+        .footer a {
             color: #8a2be2;
             text-decoration: none;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
     </style>
 </head>
@@ -103,33 +84,38 @@
     <header>
         <h1>DeepVision AI</h1>
         <nav>
-            <a href="datasets.html">Datasets</a>
+            <a href="index.html">Home</a>
             <a href="architecture.html">Architecture</a>
             <a href="how-it-works.html">How It Works</a>
         </nav>
     </header>
 
     <div class="container">
+        <h1 style="font-size: 3rem; margin: 20px 0; text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);">
+            Datasets
+        </h1>
+        <video class="dataset-video" autoplay muted loop>
+            <source src="static/images/datasets.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
         <section class="section">
             <h2>FaceForensics++</h2>
-            <div class="dataset-placeholder">Image/Video Placeholder</div>
-            <p>FaceForensics++ is a critical dataset designed to detect manipulated facial images, leveraging CNNs for exceptional image analysis. This dataset, containing real and manipulated videos, allows for thorough evaluation of deepfake detection models, supporting media authenticity and digital forensic advancements.</p>
+            <p>The "FaceForensics++" dataset provides real and manipulated videos to train and evaluate deepfake detection techniques. With a focus on manipulated facial images, this dataset aids researchers in improving detection models using Convolutional Neural Networks (CNNs). It includes diverse manipulations such as Deepfakes, Face2Face, FaceSwap, and NeuralTextures, making it a valuable resource for combating digital forgery.</p>
         </section>
 
         <section class="section">
             <h2>Deepfake Detection Challenge Dataset (DFDC)</h2>
-            <div class="dataset-placeholder">Image/Video Placeholder</div>
-            <p>The DFDC dataset provides a vast collection of diverse, labeled videos to combat deepfakes. Developed in collaboration with leading organizations, it benchmarks detection models with high-quality, annotated data to ensure robust and generalizable performance in real-world applications.</p>
+            <p>The DFDC dataset is a collaborative effort to advance deepfake detection technology. It contains a diverse set of real and manipulated videos using techniques like face swapping and facial reenactment. This dataset supports robust model training, helping address challenges like video compression and manipulation diversity.</p>
         </section>
 
         <section class="section">
             <h2>Celeb-DF</h2>
-            <div class="dataset-placeholder">Image/Video Placeholder</div>
-            <p>Celeb-DF, known for its challenging large-scale video collection, features celebrity faces across varied scenarios. It offers annotated data to train deepfake detection models, fostering improvements in media integrity and forensics through advanced research capabilities.</p>
+            <p>The Celeb-DF dataset features a large-scale collection of celebrity videos with diverse conditions. It challenges detection algorithms with real and manipulated videos generated by advanced techniques. This dataset is pivotal for developing robust models that ensure media authenticity and integrity.</p>
         </section>
     </div>
 
-    <footer>
+    <footer class="footer">
         <p>&copy; 2025 DeepVision AI | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
     </footer>
 </body>

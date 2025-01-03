@@ -41,34 +41,30 @@
             font-weight: bold;
         }
 
-        .section {
-            margin: 50px auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: left;
-            animation: fadeIn 2s ease-in-out;
+        .architecture-video {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .section {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
         }
 
         .section h2 {
             font-size: 2rem;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .section p {
             font-size: 1.2rem;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         .footer {
@@ -88,35 +84,31 @@
     <header>
         <h1>DeepVision AI</h1>
         <nav>
+            <a href="index.html">Home</a>
             <a href="datasets.html">Datasets</a>
-            <a href="architecture.html">Architecture</a>
             <a href="how-it-works.html">How It Works</a>
         </nav>
     </header>
 
     <div class="container">
+        <video class="architecture-video" autoplay muted loop>
+            <source src="static/images/datasets2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
         <section class="section">
             <h2>Model Architecture</h2>
-            <p>
-                Our model is a combination of CNN and RNN. We have used the pre-trained ResNext CNN model to extract the features at the frame level and based on the extracted features the LSTM network is trained to classify the video as deepfake or pristine. Using the Data Loader on training split of videos, the labels of the videos are loaded and fitted into the model for training.
-            </p>
+            <p>Our model combines the ResNext CNN for frame-level feature extraction and an LSTM network for temporal sequence processing. Pre-trained ResNext50_32x4d extracts 2048-dimensional feature vectors, which are sequentially analyzed by the LSTM to classify videos as deepfake or pristine. Dropout, Leaky ReLU, and adaptive pooling enhance model robustness. A SoftMax layer is used for prediction confidence.</p>
         </section>
 
         <section class="section">
             <h2>ResNext</h2>
-            <p>
-                Instead of writing the code from scratch, we used the pre-trained model of ResNext for feature extraction. ResNext is a Residual CNN network optimized for high performance on deeper neural networks. For the experimental purpose, we have used the resnext50_32x4d model. We have used a ResNext of 50 layers and 32 x 4 dimensions. Following this, we will be fine-tuning the network by adding extra required layers and selecting a proper learning rate to properly converge the gradient descent of the model. The 2048-dimensional feature vectors after the last pooling layers of ResNext are used as the sequential LSTM input.
-            </p>
+            <p>ResNext is a high-performance residual CNN optimized for deeper networks. We utilize the ResNext50_32x4d model to extract meaningful feature vectors, fine-tuned with additional layers and learning rates for gradient convergence. These vectors form the input for sequential processing.</p>
         </section>
 
         <section class="section">
-            <h2>LSTM for Sequence Processing</h2>
-            <p>
-                2048-dimensional feature vectors are fitted as the input to the LSTM. We are using 1 LSTM layer with 2048 latent dimensions and 2048 hidden layers along with a 0.4 chance of dropout, which is capable of achieving our objective. LSTM is used to process the frames sequentially so that the temporal analysis of the video can be made, by comparing the frame at 't' second with the frame of 't-n' seconds. Where 'n' can be any number of frames before t.
-            </p>
-            <p>
-                The model also consists of the Leaky ReLU activation function. A linear layer of 2048 input features and 2 output features are used to make the model capable of learning the average rate of correlation between the input and output. An adaptive average polling layer with the output parameter 1 is used in the model. This gives the target output size of the image of the form H x W. For sequential processing of the frames, a Sequential Layer is used. A batch size of 4 is used to perform training. A SoftMax layer is used to get the confidence of the model during prediction.
-            </p>
+            <h2>LSTM for Temporal Analysis</h2>
+            <p>The LSTM layer processes sequential frames to capture temporal dependencies, using a 2048-dimensional hidden layer with dropout to improve generalization. Sequential analysis ensures robust detection by comparing frames over time.</p>
         </section>
     </div>
 
