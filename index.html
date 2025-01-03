@@ -62,7 +62,7 @@
         .hero-animation {
             width: 400px;
             height: 400px;
-            background: url('animation-placeholder.gif') center/cover no-repeat;
+            background: url('static/images/hero.gif') center/cover no-repeat;
             border-radius: 50%;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
@@ -127,6 +127,65 @@
         .footer a {
             color: #8a2be2;
             text-decoration: none;
+        }
+        /* Media Queries for Responsiveness */
+        @media screen and (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-animation {
+                width: 300px;
+                height: 300px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .upload-section {
+                padding: 30px;
+            }
+
+            .upload-box {
+                padding: 30px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-animation {
+                width: 250px;
+                height: 250px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .upload-section {
+                padding: 20px;
+            }
+
+            .upload-box {
+                padding: 20px;
+            }
         }
     </style>
 </head>
