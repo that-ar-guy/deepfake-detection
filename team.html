@@ -62,7 +62,7 @@
             width: 300px;
             height: 300px;
             margin: 0 auto;
-            border: 3px solid white;
+            /* border: 3px solid white; */
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -88,24 +88,24 @@
 
         .circle img:nth-child(1) {
             top: 0;
-            left: 50%;
+            /* left: 50%; */
             transform: translate(-50%, 0);
         }
 
         .circle img:nth-child(3) {
-            top: 50%;
+            /* top: 50%; */
             right: 0;
             transform: translate(0, -50%);
         }
 
         .circle img:nth-child(5) {
             bottom: 0;
-            left: 50%;
+            /* left: 50%; */
             transform: translate(-50%, 0);
         }
 
         .circle img:nth-child(7) {
-            top: 50%;
+            /* top: 50%; */
             left: 0;
             transform: translate(0, -50%);
         }
@@ -157,6 +157,24 @@
             color: #8a2be2;
             text-decoration: none;
         }
+        .rotates{
+            animation: rotations 20s;
+        }
+        @keyframes rotations {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-359deg);
+  }
+}
+
+.linears {
+  animation-timing-function: linear;
+}
+.infinites {
+  animation-iteration-count: infinite;
+}
     </style>
 </head>
 <body>
@@ -175,16 +193,16 @@
             <h2>Meet Our Team</h2>
 
             <div class="circle">
-                <img src="./static/images/that-ar-guy.png" alt="Mohammed Abdul Rahman">
+                <img src="./static/images/that-ar-guy.png" alt="Mohammed Abdul Rahman" class="rotates linears infinites">
                 <div class="tooltip">Back-End Development & Neural Network Building</div>
 
-                <img src="./static/images/thenotorious.jpg" alt="Abdul Wahaab Baig">
+                <img src="./static/images/thenotorious.jpg" alt="Abdul Wahaab Baig" class="rotates linears infinites">
                 <div class="tooltip">Back-End, Neural Networks, GPU/TPU Handling</div>
 
-                <img src="./static/images/wanna-be-kashmiri.jpg" alt="Hamza Raza Khan">
+                <img src="./static/images/wanna-be-kashmiri.jpg" alt="Hamza Raza Khan" class="rotates linears infinites">
                 <div class="tooltip">Research & Dataset Preparation</div>
 
-                <img src="./static/images/belikekashifjpg.jpg" alt="Mir Kashif Ali">
+                <img src="./static/images/belikekashifjpg.jpg" alt="Mir Kashif Ali"class="rotates linears infinites" >
                 <div class="tooltip">Documentation, Front-End, Deployment</div>
             </div>
         </section>
